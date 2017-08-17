@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="算法," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="题目&amp;emsp;&amp;emsp;一个链表中包含环，请找出该链表的环的入口结点。  分析方法一&amp;emsp;&amp;emsp;新建一个对象空间，每当遍历到一个链表的结点，去寻找数组中是否有这个结点，如果有则为结点，如果没有则加入数组，继续遍历链表，重新寻找数组中是否有这个结点，以此类推。这个算法的时间复杂度为O(n)，空间复杂度为O(n)。代码如下： 123456789101112131415161718192">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript算法练习：链表中环的入口结点">
+<meta property="og:url" content="http://yoursite.com/2017/08/17/JavaScript算法练习：链表中环的入口结点的副本 2/index.html">
+<meta property="og:site_name" content="苏某鹏的技术小站">
+<meta property="og:description" content="题目&amp;emsp;&amp;emsp;一个链表中包含环，请找出该链表的环的入口结点。  分析方法一&amp;emsp;&amp;emsp;新建一个对象空间，每当遍历到一个链表的结点，去寻找数组中是否有这个结点，如果有则为结点，如果没有则加入数组，继续遍历链表，重新寻找数组中是否有这个结点，以此类推。这个算法的时间复杂度为O(n)，空间复杂度为O(n)。代码如下： 123456789101112131415161718192">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/链表中的环的入口结点1.jpg">
+<meta property="og:image" content="http://yoursite.com/images/链表中的环的入口结点2.jpg">
+<meta property="og:updated_time" content="2017-08-17T06:45:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript算法练习：链表中环的入口结点">
+<meta name="twitter:description" content="题目&amp;emsp;&amp;emsp;一个链表中包含环，请找出该链表的环的入口结点。  分析方法一&amp;emsp;&amp;emsp;新建一个对象空间，每当遍历到一个链表的结点，去寻找数组中是否有这个结点，如果有则为结点，如果没有则加入数组，继续遍历链表，重新寻找数组中是否有这个结点，以此类推。这个算法的时间复杂度为O(n)，空间复杂度为O(n)。代码如下： 123456789101112131415161718192">
+<meta name="twitter:image" content="http://yoursite.com/images/链表中的环的入口结点1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/17/JavaScript算法练习：链表中环的入口结点的副本 2/"/>
+
+
+
+
+
+  <title>javascript算法练习：链表中环的入口结点 | 苏某鹏的技术小站</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">苏某鹏的技术小站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/17/JavaScript算法练习：链表中环的入口结点的副本 2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Srp">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="苏某鹏的技术小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">javascript算法练习：链表中环的入口结点</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-17T11:48:12+08:00">
+                2017-08-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>&emsp;&emsp;一个链表中包含环，请找出该链表的环的入口结点。</p>
+<hr>
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><h5 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h5><p>&emsp;&emsp;新建一个对象空间，每当遍历到一个链表的结点，去寻找数组中是否有这个结点，如果有则为结点，如果没有则加入数组，继续遍历链表，重新寻找数组中是否有这个结点，以此类推。这个算法的时间复杂度为O(n)，空间复杂度为O(n)。代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*function ListNode(x)&#123;</span></div><div class="line"><span class="comment">    this.val = x;</span></div><div class="line"><span class="comment">    this.next = null;</span></div><div class="line"><span class="comment">&#125;*/</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">EntryNodeOfLoop</span>(<span class="params">pHead</span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="comment">// write code here</span></div><div class="line">    <span class="keyword">var</span> flag = &#123;&#125;;</div><div class="line">    <span class="keyword">while</span>(pHead != <span class="literal">null</span>)&#123;</div><div class="line">        <span class="keyword">if</span>(!flag[pHead.val])&#123;</div><div class="line">            flag[pHead.val] = <span class="number">1</span>;</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            <span class="keyword">return</span> pHead;</div><div class="line">        &#125;</div><div class="line">        pHead = pHead.next;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    EntryNodeOfLoop : EntryNodeOfLoop</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<hr>
+<h5 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h5><p>&emsp;&emsp;在说方法二之前，先证明一道题：</p>
+<p><img src="../../../../images/链表中的环的入口结点1.jpg" alt="链表中的环的入口结点1"></p>
+<p>&emsp;&emsp;有两个运动员A和B从起点出发跑步，B的速度是A的两倍，两个运动员到达M点的时候就按照逆时针绕着圈跑，两个运动员在N点第一次相遇，这个时候B回到起点以和A点相同的速度开始跑，A从N点继续跑，证明：两个运动员在M点再次相遇。</p>
+<p><img src="../../../../images/链表中的环的入口结点2.jpg" alt="链表中的环的入口结点2"></p>
+<p>&emsp;&emsp;如图所示，起点和M点之间的距离为s1，从M到N的距离为s2，从N点到M点的距离为s3。A和B第一次相遇的时候，因为B的速度更快，所以B比A多跑了一圈。所以A跑的距离为<br>sA=k*(s2+s3)+s1+s2<br>k的意思为可能跑k圈，B跑的多一圈，所以B的距离为<br>sB=(k+1)*(s2+s3)+s1+s2<br>因为第一次相遇时，B的速度是A的两倍，假设时间为t，所以有<br>sB/t=2*sA/t<br>三式可以解得<br>s3=s1+k*(s2+s3)<br>这个时候s2+s3为一圈的距离，假设为R，所以有<br>s3=s1+k*R<br>即，最后B从头开始跑的时候，A和B会在M点相遇，这个时候A又跑了k圈和s3的距离，此时A和B会在M点相遇。</p>
+<p>&emsp;&emsp;方法二就和这道题一样，使用快慢指针的方法，第一步，找环中相汇点。分别用p1，p2指向链表头部，p1每次走一步，p2每次走二步，直到p1\=\=p2找到在环中的相汇点。第二步，找环的入口。接上步，当p2与p1相等的时候，将p2指向头结点，之后p1和p2都每次走一步，最后p1\=\=p2的时候就是环的入口指针。代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*function ListNode(x)&#123;</span></div><div class="line"><span class="comment">    this.val = x;</span></div><div class="line"><span class="comment">    this.next = null;</span></div><div class="line"><span class="comment">&#125;*/</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">EntryNodeOfLoop</span>(<span class="params">pHead</span>)</span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="comment">// write code here</span></div><div class="line">    <span class="keyword">if</span>(pHead ==<span class="literal">null</span> || pHead.next ==<span class="literal">null</span>)&#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> fast = pHead;</div><div class="line">    <span class="keyword">var</span> slow = pHead;</div><div class="line">    <span class="keyword">while</span>(fast != <span class="literal">null</span> &amp;&amp; slow != <span class="literal">null</span>)&#123;</div><div class="line">        fast = fast.next.next;</div><div class="line">        slow = slow.next;</div><div class="line">        <span class="keyword">if</span>(fast == slow)&#123;</div><div class="line">            fast = pHead;</div><div class="line">            <span class="keyword">while</span>(fast != slow)&#123;</div><div class="line">                fast = fast.next;</div><div class="line">                slow = slow.next;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> fast;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</div><div class="line">&#125;</div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    EntryNodeOfLoop : EntryNodeOfLoop</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<hr>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>&emsp;&emsp;方法一的时间复杂度为O(n)，空间复杂度为O(n)；方法二的时间复杂度为O(n)，空间复杂度为O(1)，在使用的时候，如果不计较空间的话，方法一和方法二都可以。但是，总的来说方法二是更加优秀一些的。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/17/JavaScript算法练习：链表中环的入口结点/" rel="next" title="javascript算法练习：链表中环的入口结点">
+                <i class="fa fa-chevron-left"></i> javascript算法练习：链表中环的入口结点
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Srp" />
+          <p class="site-author-name" itemprop="name">Srp</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分析"><span class="nav-number">2.</span> <span class="nav-text">分析</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#方法一"><span class="nav-number">2.1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#方法二"><span class="nav-number">2.2.</span> <span class="nav-text">方法二</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Srp</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>

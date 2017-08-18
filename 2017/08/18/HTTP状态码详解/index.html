@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="&amp;emsp;&amp;emsp;HTTP状态码负责表示客户端HTTP请求的返回结果、标记服务器端的处理是否正常、通知出现的错误等工作。状态码的职责是当客户端向服务器端发送请求时，描述返回的请求结果。借助状态码，用户可以知道服务器端是正常处理了请求，还是出现了错误。  &amp;emsp;&amp;emsp;状态码如200 OK，以三位数字和原因短语组成。数字的第一位指定了响应类别，后两位无分类，相应类别有以下五种： ​">
+<meta name="description" content="&amp;emsp;&amp;emsp;HTTP状态码负责表示客户端HTTP请求的返回结果、标记服务器端的处理是否正常、通知出现的错误等工作。状态码的职责是当客户端向服务器端发送请求时，描述返回的请求结果。借助状态码，用户可以知道服务器端是正常处理了请求，还是出现了错误。  &amp;emsp;&amp;emsp;状态码如200 OK，以三位数字和原因短语组成。数字的第一位指定了响应类别，后两位无分类，相应类别有以下五种：">
 <meta name="keywords" content="HTTP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTTP状态码详解">
 <meta property="og:url" content="http://yoursite.com/2017/08/18/HTTP状态码详解/index.html">
 <meta property="og:site_name" content="苏某鹏的技术小站">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;HTTP状态码负责表示客户端HTTP请求的返回结果、标记服务器端的处理是否正常、通知出现的错误等工作。状态码的职责是当客户端向服务器端发送请求时，描述返回的请求结果。借助状态码，用户可以知道服务器端是正常处理了请求，还是出现了错误。  &amp;emsp;&amp;emsp;状态码如200 OK，以三位数字和原因短语组成。数字的第一位指定了响应类别，后两位无分类，相应类别有以下五种： ​">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;HTTP状态码负责表示客户端HTTP请求的返回结果、标记服务器端的处理是否正常、通知出现的错误等工作。状态码的职责是当客户端向服务器端发送请求时，描述返回的请求结果。借助状态码，用户可以知道服务器端是正常处理了请求，还是出现了错误。  &amp;emsp;&amp;emsp;状态码如200 OK，以三位数字和原因短语组成。数字的第一位指定了响应类别，后两位无分类，相应类别有以下五种：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-18T10:58:25.000Z">
+<meta property="og:updated_time" content="2017-08-18T11:43:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP状态码详解">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;HTTP状态码负责表示客户端HTTP请求的返回结果、标记服务器端的处理是否正常、通知出现的错误等工作。状态码的职责是当客户端向服务器端发送请求时，描述返回的请求结果。借助状态码，用户可以知道服务器端是正常处理了请求，还是出现了错误。  &amp;emsp;&amp;emsp;状态码如200 OK，以三位数字和原因短语组成。数字的第一位指定了响应类别，后两位无分类，相应类别有以下五种： ​">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;HTTP状态码负责表示客户端HTTP请求的返回结果、标记服务器端的处理是否正常、通知出现的错误等工作。状态码的职责是当客户端向服务器端发送请求时，描述返回的请求结果。借助状态码，用户可以知道服务器端是正常处理了请求，还是出现了错误。  &amp;emsp;&amp;emsp;状态码如200 OK，以三位数字和原因短语组成。数字的第一位指定了响应类别，后两位无分类，相应类别有以下五种：">
 
 
 
@@ -359,7 +359,67 @@
         <p>&emsp;&emsp;HTTP状态码负责表示客户端HTTP请求的返回结果、标记服务器端的处理是否正常、通知出现的错误等工作。状态码的职责是当客户端向服务器端发送请求时，描述返回的请求结果。借助状态码，用户可以知道服务器端是正常处理了请求，还是出现了错误。</p>
 <hr>
 <p>&emsp;&emsp;状态码如200 OK，以三位数字和原因短语组成。数字的第一位指定了响应类别，后两位无分类，相应类别有以下五种：</p>
-<table><br><br><tr><br><br>​    <td></td><br><br>​    <td>类别</td><br><br>​    <td>原因短语</td><br><br></tr><br><br><tr><br><br>​    <td>1XX</td><br><br>​    <td>Infomational（信息性状态码）</td><br><br>​    <td>接收的请求正在处理</td><br><br></tr><br><br><tr></tr><br><br><tr></tr><br><br><tr></tr><br><br></table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">类别</th>
+<th style="text-align:center">原因短语</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1XX</td>
+<td style="text-align:center">Infomation（信息性状态码）</td>
+<td style="text-align:center">接收的请求正在处理</td>
+</tr>
+<tr>
+<td style="text-align:center">2XX</td>
+<td style="text-align:center">Success（成功状态码）</td>
+<td style="text-align:center">请求正常处理完毕</td>
+</tr>
+<tr>
+<td style="text-align:center">3XX</td>
+<td style="text-align:center">Redirection（重定向状态码）</td>
+<td style="text-align:center">需要进行附加操作以完成请求</td>
+</tr>
+<tr>
+<td style="text-align:center">4XX</td>
+<td style="text-align:center">Client Error（客户端错误状态码）</td>
+<td style="text-align:center">服务器无法处理请求</td>
+</tr>
+<tr>
+<td style="text-align:center">5XX</td>
+<td style="text-align:center">Server Error（服务器错状态码）</td>
+<td style="text-align:center">服务器处理请求出错</td>
+</tr>
+</tbody>
+</table>
+<p>&emsp;&emsp;实际上状态码一共加起来有60余种，但是常用的也就14种，接下来，我就将介绍一下常用的具有代表性的14个状态码。</p>
+<h3 id="2XX-成功"><a href="#2XX-成功" class="headerlink" title="2XX 成功"></a>2XX 成功</h3><p>&emsp;&emsp;2XX的结果表明请求被正常处理了。</p>
+<h4 id="200-OK"><a href="#200-OK" class="headerlink" title="200 OK"></a>200 OK</h4><p>&emsp;&emsp;表示<font color="red">从客户端发来的请求在服务器端被正常处理了</font>。</p>
+<h4 id="204-No-Content"><a href="#204-No-Content" class="headerlink" title="204 No Content"></a>204 No Content</h4><p>&emsp;&emsp;该状态码代表<font color="red">服务器成功处理了请求，但不需要返回任何实体内容</font>。另外，也不允许返回任何实体的主体。比如，当从浏览器发出请求处理后，返回204响应，那么浏览器显示的页面不发生更新。</p>
+<p>&emsp;&emsp;一般在只需要从客户端往服务器发送信息，而对客户端不需要发送新信息内容的时候使用。</p>
+<h4 id="206-Partial-Content"><a href="#206-Partial-Content" class="headerlink" title="206 Partial Content"></a>206 Partial Content</h4><p>&emsp;&emsp;该状态码表示<font color="red">客户端进行了范围请求，而服务器成功执行了这部分的GET请求</font>。响应报文中包含由Content-Range指定范围的实体内容。</p>
+<h3 id="3XX-重定向"><a href="#3XX-重定向" class="headerlink" title="3XX 重定向"></a>3XX 重定向</h3><p>&emsp;&emsp;3XX响应结果表明浏览器需要执行某些特殊的处理以正确处理请求。</p>
+<h4 id="301-Moved-Permanently"><a href="#301-Moved-Permanently" class="headerlink" title="301 Moved Permanently"></a>301 Moved Permanently</h4><p>&emsp;&emsp;永久性重定向。该状态码表示<font color="red">请求的资源已经被分配了新的URI，以后应使用资源现在所指的URI</font>。也就是说，如果已经把资源对应的URI保存为书签了，这时应该按照Location首部字段提示的URI重新保存。</p>
+<h4 id="302-Found"><a href="#302-Found" class="headerlink" title="302 Found"></a>302 Found</h4><p>&emsp;&emsp;临时性重定向。该状态码表示<font color="red">请求的资源已经被分配了新的URI，希望用户（本次）能使用新的URI访问</font>。</p>
+<p>&emsp;&emsp;和301相似，但是302代表的是临时性质的移动，而不是永久性的。已经移动的资源对应的URI有可能再次发生改变。比如，用户把URI保存成书签，但是，不会像301那样去更新书签，而是仍旧保留返回的302状态码和对应的URI。</p>
+<h4 id="303-See-Other"><a href="#303-See-Other" class="headerlink" title="303 See Other"></a>303 See Other</h4><p>&emsp;&emsp;该状态码表示<font color="red">由于请求对应的资源存在另一个URI，应使用GET方法定向获取请求的资源</font>。</p>
+<p>&emsp;&emsp;303和302有着相同的功能，但是303状态码明确表示客户端应当采用GET方法获取资源。</p>
+<h4 id="304-Not-Modified"><a href="#304-Not-Modified" class="headerlink" title="304 Not Modified"></a>304 Not Modified</h4><p>&emsp;&emsp;<font color="red">如果客户端发送了一个带条件的 GET 请求且该请求已被允许，而文档的内容（自上次访问以来或者根据请求的条件）并没有改变，则服务器应当返回这个状态码</font>。304虽然被划分在3XX类别中，但是和重定向没有关系。</p>
+<h4 id="307-Temporary-Redirect"><a href="#307-Temporary-Redirect" class="headerlink" title="307 Temporary Redirect"></a>307 Temporary Redirect</h4><p>&emsp;&emsp;临时重定向。该状态码与302 Found有着相同的含义。</p>
+<h3 id="4XX-客户端错误"><a href="#4XX-客户端错误" class="headerlink" title="4XX 客户端错误"></a>4XX 客户端错误</h3><p>&emsp;&emsp;4XX的响应结果表明客户端是发生错误的原因所在。</p>
+<h4 id="400-Bad-Request"><a href="#400-Bad-Request" class="headerlink" title="400 Bad Request"></a>400 Bad Request</h4><p>&emsp;&emsp;该状态码表示<font color="red">请求报文中存在语法错误</font>。当错误发生时，需修改请求的内容后重新发送请求。另外浏览器会像200 OK一样对待该状态码。</p>
+<h4 id="401-Unauthorized"><a href="#401-Unauthorized" class="headerlink" title="401 Unauthorized"></a>401 Unauthorized</h4><p>&emsp;&emsp;该状态码表示<font color="red">发送的请求需要有通过HTTP认证（BASIC认证、DIGEST认证）的认证信息</font>。另外若之前已经进行过一次请求，则表示用户认证失败。</p>
+<p>&emsp;&emsp;返回含有401的响应必须包含一个适用于被请求资源的WWW-Authenticate首部用以质询（challenge）用户信息。当浏览器初次接收到401响应，会弹出认证用的对话窗口。</p>
+<h4 id="403-Forbidden"><a href="#403-Forbidden" class="headerlink" title="403 Forbidden"></a>403 Forbidden</h4><p>&emsp;&emsp;该状态码表示<font color="red">对请求资源的访问被服务器拒绝了</font>。服务器端没有必要给出拒绝的详细理由，但如果想作说明的话，可以在实体的主体部分对原因进行描述，这样就能让用户看到了。</p>
+<p>&emsp;&emsp;未获得文件系统的访问授权、访问权限出现某些问题（从未授权的发送源IP地址试图访问）等列举的情况都可能是发生403的原因。</p>
+<h4 id="404-Not-Found"><a href="#404-Not-Found" class="headerlink" title="404 Not Found"></a>404 Not Found</h4><p>&emsp;&emsp;该服务器表明<font color="red">服务器上无法找到请求的资源</font>。除此之外，也可以在服务器端拒绝请求且不想说明理由时使用。</p>
+<h3 id="5XX-服务器错误"><a href="#5XX-服务器错误" class="headerlink" title="5XX 服务器错误"></a>5XX 服务器错误</h3><p>&emsp;&emsp;5XX的响应结果表明服务器本身发生错误。</p>
+<h4 id="500-Internet-Server-Error"><a href="#500-Internet-Server-Error" class="headerlink" title="500 Internet Server Error"></a>500 Internet Server Error</h4><p>&emsp;&emsp;该状态码表明<font color="red">服务器端在执行请求时发生了错误</font>，也可能是Web应用存在的bug或者某些临时的故障。</p>
+<h4 id="503-Server-Unavailable"><a href="#503-Server-Unavailable" class="headerlink" title="503 Server Unavailable"></a>503 Server Unavailable</h4><p>&emsp;&emsp;该状态码表明<font color="red">服务器暂时处于超负载或者正在进行停机维护，现在无法处理请求</font>。如果事先得知解除以上状况需要的时间，最好写入RetryAfter首部字段再返回给客户端。</p>
+
       
     </div>
     
@@ -449,8 +509,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -512,6 +581,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#2XX-成功"><span class="nav-number">1.</span> <span class="nav-text">2XX 成功</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#200-OK"><span class="nav-number">1.1.</span> <span class="nav-text">200 OK</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#204-No-Content"><span class="nav-number">1.2.</span> <span class="nav-text">204 No Content</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#206-Partial-Content"><span class="nav-number">1.3.</span> <span class="nav-text">206 Partial Content</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3XX-重定向"><span class="nav-number">2.</span> <span class="nav-text">3XX 重定向</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#301-Moved-Permanently"><span class="nav-number">2.1.</span> <span class="nav-text">301 Moved Permanently</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#302-Found"><span class="nav-number">2.2.</span> <span class="nav-text">302 Found</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#303-See-Other"><span class="nav-number">2.3.</span> <span class="nav-text">303 See Other</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#304-Not-Modified"><span class="nav-number">2.4.</span> <span class="nav-text">304 Not Modified</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#307-Temporary-Redirect"><span class="nav-number">2.5.</span> <span class="nav-text">307 Temporary Redirect</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4XX-客户端错误"><span class="nav-number">3.</span> <span class="nav-text">4XX 客户端错误</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#400-Bad-Request"><span class="nav-number">3.1.</span> <span class="nav-text">400 Bad Request</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#401-Unauthorized"><span class="nav-number">3.2.</span> <span class="nav-text">401 Unauthorized</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#403-Forbidden"><span class="nav-number">3.3.</span> <span class="nav-text">403 Forbidden</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#404-Not-Found"><span class="nav-number">3.4.</span> <span class="nav-text">404 Not Found</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5XX-服务器错误"><span class="nav-number">4.</span> <span class="nav-text">5XX 服务器错误</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#500-Internet-Server-Error"><span class="nav-number">4.1.</span> <span class="nav-text">500 Internet Server Error</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#503-Server-Unavailable"><span class="nav-number">4.2.</span> <span class="nav-text">503 Server Unavailable</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

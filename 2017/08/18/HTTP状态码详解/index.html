@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="苏某鹏的技术小站">
 <meta property="og:description" content="&amp;emsp;&amp;emsp;HTTP状态码负责表示客户端HTTP请求的返回结果、标记服务器端的处理是否正常、通知出现的错误等工作。状态码的职责是当客户端向服务器端发送请求时，描述返回的请求结果。借助状态码，用户可以知道服务器端是正常处理了请求，还是出现了错误。  &amp;emsp;&amp;emsp;状态码如200 OK，以三位数字和原因短语组成。数字的第一位指定了响应类别，后两位无分类，相应类别有以下五种：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-18T11:43:51.000Z">
+<meta property="og:updated_time" content="2017-09-03T15:23:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP状态码详解">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;HTTP状态码负责表示客户端HTTP请求的返回结果、标记服务器端的处理是否正常、通知出现的错误等工作。状态码的职责是当客户端向服务器端发送请求时，描述返回的请求结果。借助状态码，用户可以知道服务器端是正常处理了请求，还是出现了错误。  &amp;emsp;&amp;emsp;状态码如200 OK，以三位数字和原因短语组成。数字的第一位指定了响应类别，后两位无分类，相应类别有以下五种：">
@@ -407,7 +407,7 @@
 <p>&emsp;&emsp;和301相似，但是302代表的是临时性质的移动，而不是永久性的。已经移动的资源对应的URI有可能再次发生改变。比如，用户把URI保存成书签，但是，不会像301那样去更新书签，而是仍旧保留返回的302状态码和对应的URI。</p>
 <h4 id="303-See-Other"><a href="#303-See-Other" class="headerlink" title="303 See Other"></a>303 See Other</h4><p>&emsp;&emsp;该状态码表示<font color="red">由于请求对应的资源存在另一个URI，应使用GET方法定向获取请求的资源</font>。</p>
 <p>&emsp;&emsp;303和302有着相同的功能，但是303状态码明确表示客户端应当采用GET方法获取资源。</p>
-<h4 id="304-Not-Modified"><a href="#304-Not-Modified" class="headerlink" title="304 Not Modified"></a>304 Not Modified</h4><p>&emsp;&emsp;<font color="red">如果客户端发送了一个带条件的 GET 请求且该请求已被允许，而文档的内容（自上次访问以来或者根据请求的条件）并没有改变，则服务器应当返回这个状态码</font>。304虽然被划分在3XX类别中，但是和重定向没有关系。</p>
+<h4 id="304-Not-Modified"><a href="#304-Not-Modified" class="headerlink" title="304 Not Modified"></a>304 Not Modified</h4><p>&emsp;&emsp;<font color="red">该状态码表明如果客户端发送了一个带条件的请求，但是客户端中的缓存仍然是有效的，也就是说该资源从上次缓存到现在并没有被修改过。此时服务器不会返回响应体，客户端收到304状态码之后，就会从缓存中读取对应的资源</font>。304虽然被划分在3XX类别中，但是和重定向没有关系。</p>
 <h4 id="307-Temporary-Redirect"><a href="#307-Temporary-Redirect" class="headerlink" title="307 Temporary Redirect"></a>307 Temporary Redirect</h4><p>&emsp;&emsp;临时重定向。该状态码与302 Found有着相同的含义。</p>
 <h3 id="4XX-客户端错误"><a href="#4XX-客户端错误" class="headerlink" title="4XX 客户端错误"></a>4XX 客户端错误</h3><p>&emsp;&emsp;4XX的响应结果表明客户端是发生错误的原因所在。</p>
 <h4 id="400-Bad-Request"><a href="#400-Bad-Request" class="headerlink" title="400 Bad Request"></a>400 Bad Request</h4><p>&emsp;&emsp;该状态码表示<font color="red">请求报文中存在语法错误</font>。当错误发生时，需修改请求的内容后重新发送请求。另外浏览器会像200 OK一样对待该状态码。</p>

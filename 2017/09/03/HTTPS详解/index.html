@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="HTTP," />
 
 
 
@@ -94,17 +94,18 @@
 
 
 
-<meta name="description" content="&amp;emsp;&amp;emsp;HTTPS与HTTP有关系，在说HTTPS之前先讲一讲HTTP吧。首先我们说一说当我们在浏览器地址栏中输入URL的时候，web页面是如何呈现的：  在浏览器输入URL； 应用层DNS解析域名； 客户端发送HTTP请求； 打开一个socket与目标IP地址, 端口建立TCP连接； 网络层IP协议查询MAC地址； 数据到达数据链层（TCP建立连接后，发送HTTP请求）； 服务器">
+<meta name="description" content="&amp;emsp;&amp;emsp;HTTPS与HTTP有关系，在说HTTPS之前先讲一讲HTTP吧。&amp;emsp;&amp;emsp;首先我们说一说当我们在浏览器地址栏中输入URL的时候，web页面是如何呈现的：  在浏览器输入URL； 应用层DNS解析域名； 客户端发送HTTP请求； 打开一个socket与目标IP地址, 端口建立TCP连接； 网络层IP协议查询MAC地址； 数据到达数据链层（TCP建立连接后，发送">
+<meta name="keywords" content="HTTP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="苏某鹏的技术小站">
+<meta property="og:title" content="HTTPS详解">
 <meta property="og:url" content="http://yoursite.com/2017/09/03/HTTPS详解/index.html">
 <meta property="og:site_name" content="苏某鹏的技术小站">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;HTTPS与HTTP有关系，在说HTTPS之前先讲一讲HTTP吧。首先我们说一说当我们在浏览器地址栏中输入URL的时候，web页面是如何呈现的：  在浏览器输入URL； 应用层DNS解析域名； 客户端发送HTTP请求； 打开一个socket与目标IP地址, 端口建立TCP连接； 网络层IP协议查询MAC地址； 数据到达数据链层（TCP建立连接后，发送HTTP请求）； 服务器">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;HTTPS与HTTP有关系，在说HTTPS之前先讲一讲HTTP吧。&amp;emsp;&amp;emsp;首先我们说一说当我们在浏览器地址栏中输入URL的时候，web页面是如何呈现的：  在浏览器输入URL； 应用层DNS解析域名； 客户端发送HTTP请求； 打开一个socket与目标IP地址, 端口建立TCP连接； 网络层IP协议查询MAC地址； 数据到达数据链层（TCP建立连接后，发送">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-30T07:02:18.000Z">
+<meta property="og:updated_time" content="2017-09-30T07:04:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="苏某鹏的技术小站">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;HTTPS与HTTP有关系，在说HTTPS之前先讲一讲HTTP吧。首先我们说一说当我们在浏览器地址栏中输入URL的时候，web页面是如何呈现的：  在浏览器输入URL； 应用层DNS解析域名； 客户端发送HTTP请求； 打开一个socket与目标IP地址, 端口建立TCP连接； 网络层IP协议查询MAC地址； 数据到达数据链层（TCP建立连接后，发送HTTP请求）； 服务器">
+<meta name="twitter:title" content="HTTPS详解">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;HTTPS与HTTP有关系，在说HTTPS之前先讲一讲HTTP吧。&amp;emsp;&amp;emsp;首先我们说一说当我们在浏览器地址栏中输入URL的时候，web页面是如何呈现的：  在浏览器输入URL； 应用层DNS解析域名； 客户端发送HTTP请求； 打开一个socket与目标IP地址, 端口建立TCP连接； 网络层IP协议查询MAC地址； 数据到达数据链层（TCP建立连接后，发送">
 
 
 
@@ -139,7 +140,7 @@
 
 
 
-  <title> | 苏某鹏的技术小站</title>
+  <title>HTTPS详解 | 苏某鹏的技术小站</title>
   
 
 
@@ -283,7 +284,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">HTTPS详解</h1>
         
 
         <div class="post-meta">
@@ -305,6 +306,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTTP/" itemprop="url" rel="index">
+                    <span itemprop="name">HTTP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -333,7 +356,7 @@
       
 
       
-        <p>&emsp;&emsp;HTTPS与HTTP有关系，在说HTTPS之前先讲一讲HTTP吧。首先我们说一说当我们在浏览器地址栏中输入URL的时候，web页面是如何呈现的：</p>
+        <p>&emsp;&emsp;HTTPS与HTTP有关系，在说HTTPS之前先讲一讲HTTP吧。<br>&emsp;&emsp;首先我们说一说当我们在浏览器地址栏中输入URL的时候，web页面是如何呈现的：</p>
 <ol>
 <li>在浏览器输入URL；</li>
 <li>应用层DNS解析域名；</li>
@@ -408,6 +431,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTTP/" rel="tag"># HTTP</a>
+          
+        </div>
       
 
       
